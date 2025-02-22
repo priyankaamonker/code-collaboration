@@ -1,12 +1,15 @@
 {
-  "name": "chatapp",
+  "name": "collaborative_code_editor",
   "version": "0.0.1",
   "description": "my first socket.io app",
   "type": "commonjs",
   "dependencies": {
+    "@codemirror/basic-setup": "^0.20.0",
+    "@codemirror/view": "^6.36.3",
     "@socket.io/cluster-adapter": "^0.2.2",
+    "codemirror": "^6.0.1",
     "express": "^4.21.1",
-    "socket.io": "^4.7.2",
+    "socket.io": "^4.8.1",
     "sqlite": "^5.0.1",
     "sqlite3": "^5.1.6"
   }

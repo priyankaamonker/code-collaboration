@@ -4,10 +4,12 @@ const { join } = require('node:path');
 const { Server } = require('socket.io');
 const sqlite3 = require('sqlite3');
 const { open } = require('sqlite');
+//const { availableParallelism } = require('node:os');
 const cluster = require('node:cluster');
 const { createAdapter, setupPrimary } = require('@socket.io/cluster-adapter');
 
 if (cluster.isPrimary) {
+  //const numCPUs = availableParallelism();
   // create two workers - port number being randomly generated
   cluster.fork({
       PORT: Math.floor(50000 + (25000 - 50000) * Math.random())
@@ -83,6 +85,7 @@ async function main() {
   server.listen(port, () => {
     console.log(`server running at http://localhost:${port}`);
   });
+  app.use(express.static(__dirname + '/'));
 }
 
 main();
