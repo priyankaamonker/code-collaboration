@@ -10,10 +10,10 @@ const { createAdapter, setupPrimary } = require('@socket.io/cluster-adapter');
 if (cluster.isPrimary) {
   // create two workers - port number being randomly generated
   cluster.fork({
-      PORT: 1234
+      PORT: process.env.PORT1 || 1234
   });
   cluster.fork({
-      PORT: 5678
+      PORT: process.env.PORT2 || 5678
   });
 
   // set up the adapter on the primary thread
