@@ -6,6 +6,7 @@ const sqlite3 = require('sqlite3');
 const { open } = require('sqlite');
 const cluster = require('node:cluster');
 const { createAdapter, setupPrimary } = require('@socket.io/cluster-adapter');
+const os = require('os'); 
 
 if (cluster.isPrimary) {
   // create two workers - port number being randomly generated
@@ -79,9 +80,10 @@ async function main() {
   });
 
   const port = process.env.PORT;
+  const domain = os.hostname();
 
   server.listen(port, () => {
-    console.log(`server running at http://localhost:${port}`);
+    console.log(`server running at ${domain}:${port}`);
   });
   app.use(express.static(__dirname + '/'));
 }
