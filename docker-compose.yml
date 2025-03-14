@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  node-app:
+    build: .
+    ports:
+      - "3001:3001"
+      - "3002:3002"
+    environment:
+      - WORKER1_PORT=3001
+      - WORKER2_PORT=3002
