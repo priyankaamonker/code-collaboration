@@ -22,6 +22,7 @@ if (cluster.isPrimary) {
 }
 
 async function main() {
+  console.log("App started");
   const db = await open({
     filename: 'chat.db',
     driver: sqlite3.Database
