@@ -12,10 +12,10 @@ RUN npm --version
 WORKDIR /usr/src/app
 COPY . .
 RUN npm install express@4 socket.io sqlite3
-ARG PORT1=3001
-ARG PORT2=3002
+# ARG PORT1=3001
+# ARG PORT2=3002
 # RUN echo "hello world" $PORT1 $PORT2
-EXPOSE $PORT1 $PORT2
+# EXPOSE $PORT1 $PORT2
 CMD [ "node", "index.js" ]
 ##################
 
